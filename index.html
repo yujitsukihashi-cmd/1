@@ -548,6 +548,24 @@
     return [{ role: "user", content: buildInstructions(record) }, ...history];
   }
 
+  const HERO_REVERT_DELAY = 2800;
+  let heroRevertTimer = null;
+
+  function clearHeroRevertTimer() {
+    if (heroRevertTimer) {
+      clearTimeout(heroRevertTimer);
+      heroRevertTimer = null;
+    }
+  }
+
+  function scheduleHeroRevert(record) {
+    clearHeroRevertTimer();
+    heroRevertTimer = setTimeout(() => {
+      heroRevertTimer = null;
+      resetHeroToBase(record);
+    }, HERO_REVERT_DELAY);
+  }
+
   function updateMood(record, emotion) {
     if (current !== record) return;
     if (record.emoImages) {
@@ -557,10 +575,12 @@
         heroImg.src = heroImageFor(record, emotion);
         requestAnimationFrame(() => { heroImg.style.opacity = "1"; });
       }
+      if (emotion) scheduleHeroRevert(record);
     }
   }
 
   function resetHeroToBase(record) {
+    clearHeroRevertTimer();
     if (current !== record || !record.emoImages) return;
     const heroImg = document.querySelector(".chat-hero img");
     if (heroImg) {
