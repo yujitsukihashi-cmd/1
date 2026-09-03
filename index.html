@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Girl Chat</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="phone">
+
+    <section class="select-screen" id="selectScreen">
+      <h1 class="select-title">コンパニオンを選択</h1>
+      <p class="select-subtitle">気になる子をタップして会話を始めよう</p>
+      <div class="companion-grid" id="companionGrid"></div>
+    </section>
+
+    <section class="chat-screen" id="chatScreen" hidden>
+      <header class="chat-header">
+        <button class="back-button" id="backButton" aria-label="選択画面に戻る">←</button>
+        <div class="avatar" id="chatAvatar"></div>
+        <div class="header-info">
+          <div class="name" id="chatName"></div>
+          <div class="status"><span class="dot"></span>オンライン</div>
+        </div>
+      </header>
+
+      <div class="profile-hero" id="profileHero">
+        <div class="profile-avatar" id="profileAvatar"></div>
+        <div class="profile-name" id="profileName"></div>
+        <div class="profile-tagline" id="profileTagline"></div>
+      </div>
+
+      <main class="chat-window" id="chatWindow"></main>
+
+      <div class="typing-indicator" id="typingIndicator" hidden>
+        <span></span><span></span><span></span>
+      </div>
+
+      <footer class="composer">
+        <input type="text" id="messageInput" placeholder="メッセージを入力..." autocomplete="off">
+        <button id="sendButton" aria-label="送信">➤</button>
+      </footer>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
