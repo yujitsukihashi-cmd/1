@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cool Girl Chat</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="phone">
+    <header class="chat-header">
+      <div class="avatar">凛</div>
+      <div class="header-info">
+        <div class="name">凛 <span class="badge">Cool</span></div>
+        <div class="status"><span class="dot"></span>オンライン</div>
+      </div>
+    </header>
+
+    <main class="chat-window" id="chatWindow"></main>
+
+    <div class="typing-indicator" id="typingIndicator" hidden>
+      <span></span><span></span><span></span>
+    </div>
+
+    <footer class="composer">
+      <input type="text" id="messageInput" placeholder="メッセージを入力..." autocomplete="off">
+      <button id="sendButton" aria-label="送信">➤</button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
